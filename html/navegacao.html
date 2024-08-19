@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>SEG escola</title>
+</head>
+<body>
+    <nav id="navbar">
+        <div id="side_bar_content">
+            <div id="usuario">
+                <img id="usuario_imagem" src="img/foto_do_aluno.jpg" alt="foto do aluno">
+    
+                <p id="descricao_usuario">
+                    <span class="descricao" style="text-transform: uppercase; font-weight: bold;">
+                        Nome do Aluno
+                    </span>
+                    <span class="descricao">
+                        Lorem ipsum dolor sit. 
+                    </span>
+                </p>
+            </div>
+    
+            <ul id="side_itens">
+                <li class="side_itens active">
+                    <a href="html/login.html" onclick="showIframe(this); return false;">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="descricao">
+                            Cadastro
+                        </span>
+                    </a>
+                </li>
+                <li class="side_itens">
+                    <a href="html/cadastroalunos.html" onclick="showIframe(this); return false;">
+                        <i class="bi bi-backpack4"></i>
+                        <span class="descricao">
+                            Notas
+                        </span>
+                    </a>
+                </li>
+                <li class="side_itens">
+                    <a href="html/tabela.html" onclick="showIframe(this); return false;">
+                        <i class="bi bi-table"></i>
+                        <span class="descricao">
+                            Tabela de Notas
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <button id="open_btn">
+                <i id="open_btn_icon" class="bi bi-arrow-right-circle"></i>
+            </button>
+        </div>
+        <!-- sofrimento escolar gratuito --> 
+        <div id="logout">
+            <button id="logout_btn">
+                <i class="bi bi-box-arrow-right"></i>
+                <span class="descricao">Logout</span>
+            </button>
+        </div>
+    </nav>
+    <main>
+        <iframe id="contentIframe"></iframe>
+    </main>
+    <script src="javascript/script.js"></script>
+</body>
+</html>
