@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <title>Document</title>
+</head>
+<body>
+    <section id="tela_cadastro">
+        <h1>seg escola</h1>
+
+        <section id="section_cadastro">
+
+            <form id="tela_cadastro">
+                <div id="mensagem_cadastro">
+                    <h2>Seja muito bem vindo</h2>
+                    <p>Se você esta cadastrado? <a href="../index.html">Login</a></p>
+                </div>
+                <label for="userType" >Escolha: </label>
+                <select class="input_cadastro" name="userType" id="userType" required>
+                    <option value="student">Aluno</option>
+                    <option value="teacher">Professor</option>
+                </select>
+
+                <label for="name">Nome<span style="color: red;">*</span>: </label>
+                <input class="input_cadastro" type="text" id="name" name="name" required>
+
+                <div id="dadosAdicionais"></div>
+
+                <button class="input_cadastro" type="submit">Cadastrar</button>
+            </form>
+            	
+        </section>
+    </section>
+
+    <script src="../javascript/cadastro.js"></script>
+</body>
+</html>
