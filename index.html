@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,35 +10,30 @@
     <section id="barra_navegacao">
         <h1>seg escola</h1>
         <section id="section_login"> 
-            
             <form id="tela_login">
                 <div id="mensagem_login">
                     <h2>Seja muito bem vindo</h2>
-                    <p>Se você não esta cadastrado? <a href="html/cadastro.html">Clique aqui</a></p>
+                    <p>Se você não está cadastrado? <a href="html/cadastro.html">Clique aqui</a></p>
                 </div>
                 <br>
-                <label for="Id">Id<span style="color: red;">*</span>: </label>
-                <input class="input_login" type="text" id="Id" name="name" required pattern="\d*" title="Id deve ser apenas números">
+                <label for="userId">Id<span style="color: red;">*</span>: </label>
+                <input class="input_login" type="text" id="userId" name="userId" required pattern="\d*" title="Id deve ser apenas números">
                 <br>
-                <label for="name">Nome<span style="color: red;">*</span>: </label>
-                <input class="input_login" type="text" id="name" required name="name">
+                <label for="userName">Nome<span style="color: red;">*</span>: </label>
+                <input class="input_login" type="text" id="userName" required name="userName">
                 <br>
                 <label for="userType">Escolha: </label>
                 <select class="input_login" name="userType" id="userType" required>
-                    <option value="student">Aluno</option>
-                    <option value="teacher">Professor</option>
+                    <option value="" disabled selected>Selecione uma classe</option>
+                    <option value="aluno">Aluno</option>
+                    <option value="professor">Professor</option>
                 </select>
                 <br><br>
                 <button class="input_login" type="submit">Entrar</button>
             </form>
-            
             <img src="../img/foto_de_fundo.png" alt="estudos">
         </section>
-         
     </section>
-    
-
-
     <script src="javascript/login.js"></script>
 </body>
 </html>

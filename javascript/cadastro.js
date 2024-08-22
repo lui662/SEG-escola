@@ -4,12 +4,12 @@ document.getElementById('userType').addEventListener('change', function() {
 
     dadosAdicionais.innerHTML = ''; 
 
-    if (userType === 'student') {
+    if (userType === 'aluno') {
         dadosAdicionais.innerHTML = `
             <label for="dataNascimento">Data de Nascimento<span style="color: red;">*</span>: </label>
             <input class="input_cadastro" type="date" id="dataNascimento" name="dataNascimento" required>
         `;
-    } else if (userType === 'teacher') {
+    } else if (userType === 'professor') {
         dadosAdicionais.innerHTML = `
             <label for="especializacao">Especialização<span style="color: red;">*</span>: </label>
             <input class="input_cadastro" type="text" id="especializacao" name="especializacao" required>
@@ -17,51 +17,50 @@ document.getElementById('userType').addEventListener('change', function() {
     }
 });
 
-
-document.getElementById('tela_cadastro').addEventListener('submit', async function (){
+document.getElementById('form_cadastro').addEventListener('submit', async function(event){
     event.preventDefault();
 
-    const userName = document.getElementById('name').value;
+    const userName = document.getElementById("name").value;
+    const userType = document.getElementById("userType").value;
 
-    let URL_api;
-    let data; 
+    let URL;
+    let json;
 
-    if (userType === 'student'){
-        URL_api = 'https://web-production-e0f5.up.railway.app/aluno/cadastrar';
-
-        const dataNascimento = document.getElementById('dataNascimento').value;
-        const dataFormatada = new Date(dataNascimento).toISOString().split('T')[0];
-        data = {
+    if(userType === 'aluno'){
+        URL = 'https://web-production-e0f5.up.railway.app/aluno/cadastrar';
+        const dataNascimento = document.getElementById("dataNascimento").value; 
+        json = {
             name: userName,
-            date: dataFormatada
+            date: dataNascimento
         };
-    } else if (userType === 'teacher'){
-        URL_api = 'https://web-production-e0f5.up.railway.app/professor/cadastrar'
-
-        data = {
+    } else if (userType === 'professor'){
+        URL = 'https://web-production-e0f5.up.railway.app/professor/cadastrar';
+        const especializacao = document.getElementById("especializacao").value;
+        json = {
             name: userName,
-            especializacao: document.getElementById('especializacao').value
+            especializacao: especializacao
         };
     }
 
-    try {
-        const response = await fetch(URL_api, {
+    try{
+        const resp = await fetch(URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-type': 'application/json',
             },
-            body: JSON.stringify(data)
-        })
 
-        const result = await response.json();
+            body: JSON.stringify(json)
+        });
 
-        if(result.success){
-            window.location.href = '../index.html';
-        } else {
-            alert('Cadastro Falhou: ', result.message);
+        const data = await resp.json();
+
+        if(resp.ok === true){
+            alert(`${userType === 'aluno' ? 'Aluno' : 'Professor'} cadastrado com sucesso!`);
+            window.location.href = '../html/navegacao.html';
+        } else if (resp.ok === false){
+            alert('Erro: ' + (data.error || data.ERRO || 'Ocorreu um erro ao se cadastrar!'));
         }
-    } catch(error){
-        console.error('erro', error)
-        alert('Ocorreu um erro ao tentar fazer o cadastro')
+    }catch(error) {
+        alert("Erro: " + error.message);
     }
-})
+});

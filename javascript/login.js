@@ -1,45 +1,45 @@
 document.getElementById('tela_login').addEventListener('submit', async function(event) {
-    event.preventDefault(); 
+    event.preventDefault();  
 
-    const userId = document.getElementById('Id').value;
-    const userName = document.getElementById('name').value;
-    const userType = document.getElementById('userType').value; 
+    const userId = document.getElementById('userId').value;
+    const userName = document.getElementById('userName').value;
+    const userType = document.getElementById('userType').value;
 
-
-    let URL_api;
-    let usuario;
-    if(userType === 'student'){
-        URL_api = 'https://web-production-e0f5.up.railway.app/aluno/cadastrar';
-        usuario = 'id_aluno';
-    } else {
-        URL_api = 'https://web-production-e0f5.up.railway.app/professor/cadastrar';
-        usuario = 'id_professor';
-    }
-    
-
-    const data = {
-        [usuario]: userId, 
-        name: userName,
+    let data = {
+        name: userName
     };
 
-    fetch(URL_api, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
+    if (userType === 'professor') {
+        data.id_professor = userId;
+    } else if (userType === 'aluno') {
+        data.id_aluno = userId;
+    } else {
+        alert('Tipo de usuário não suportado.');
+        return;
+    }
 
-    .then(response => response.json())
-    .then(result => {
-        if (result.success){
-            window.location.href = '../html/navegacao.html';
-        } else {
-            alert('Login Falhou: ' + result.message)
+    const url = 'https://web-production-e0f5.up.railway.app/login';
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            alert('Login realizado com sucesso!');
+            window.location.href = '../html/navegacao.html'; 
+            const errorData = await response.json();
+            console.error('Erro na requisição:', errorData); 
+            alert(`Erro: ${errorData.message || 'Não foi possível realizar o login.'}`);
         }
-    })
-    .catch(erro => {
-        console.error('Erro', erro)
-        alert('Ocorreu um erro ao tentar fazer o login')
-    })
-})
+    } catch (error) {
+        console.error('Erro ao tentar fazer o login:', error); 
+        alert('Erro ao tentar fazer o login: ' + error.message);
+    }
+});
+
