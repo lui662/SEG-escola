@@ -32,7 +32,12 @@ document.getElementById('tela_login').addEventListener('submit', async function(
         if (response.ok) {
             const result = await response.json();
             alert('Login realizado com sucesso!');
+            sessionStorage.setItem('userName', userName);
+            sessionStorage.setItem('userType', userType);
+
             window.location.href = '../html/navegacao.html'; 
+            
+        }else{
             const errorData = await response.json();
             console.error('Erro na requisição:', errorData); 
             alert(`Erro: ${errorData.message || 'Não foi possível realizar o login.'}`);
