@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             </a>
         </li>
         <li class="side_itens">
-            <a href="html/cadastrarNotas.html" onclick="showIframe(this); return false;">
+            <a href="cadastrarNotas.html" onclick="showIframe(this); return false;">
                 <i class="bi bi-journal-richtext"></i>
                 <span class="descricao">
                     Cadastrar Notas
@@ -48,10 +48,18 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             </a>
         </li>
         <li class="side_itens">
-            <a href="html/tabelaNotas.html" onclick="showIframe(this); return false;">
+            <a href="tabelaNotas.html" onclick="showIframe(this); return false;">
                 <i class="bi bi-table"></i>
                 <span class="descricao">
                     Tabela de Notas
+                </span>
+            </a>
+        </li>
+        <li class="side_itens">
+            <a href="materiasProfessores.html" onclick="showIframe(this); return false;">
+                <i class="bi bi-backpack3"></i>
+                <span class="descricao">
+                    Materias e Professores
                 </span>
             </a>
         </li>`

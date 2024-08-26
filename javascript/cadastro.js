@@ -11,7 +11,7 @@ document.getElementById('userType').addEventListener('change', function() {
         `;
     } else if (userType === 'professor') {
         dadosAdicionais.innerHTML = `
-            <label for="especializacao">Especialização<span style="color: red;">*</span>: </label>
+            <label for="especializacao">Disciplina<span style="color: red;">*</span>: </label>
             <input class="input_cadastro" type="text" id="especializacao" name="especializacao" required>
         `;
     }

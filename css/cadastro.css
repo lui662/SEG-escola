@@ -9,3 +9,88 @@
     font-weight: 400;
     font-style: normal;
 }
+
+#tela_cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    margin-top: 25px;
+    margin-left: 3%;
+    margin-right: 3%;
+
+    padding: 15px;
+    border: 4px double #9ad0d3;
+    border-radius: 8px;
+}
+
+#tela_cadastro h1 {
+
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #9ad0d3;
+    color: black;
+    padding: 15px;
+    font-size: 70px;
+    letter-spacing: 25px;
+    border-radius: 10px;
+
+    font-family: "New Amsterdam", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#section_cadastro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#section_cadastro img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+}
+
+#form_cadastro {
+    display: flex;
+    flex-direction: column;
+    
+    padding: 115px;
+    border-radius: 8px;
+    background-color: #9ad0d3;
+    gap: 15px;
+}
+
+.input_cadastro {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: none; 
+}
+
+#mensagem_cadastro {
+    display: flex;
+    flex-direction: column;
+}
+
+#mensagem_cadastro h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+#mensagem_cadastro p {
+    font-size: 13px;
+    color: black;
+}
+
+#mensagem_cadastro p a {
+    text-decoration: none;
+    color: red;
+}
+
+#mensagem_cadastro p a:hover {
+    border-bottom: 2px solid red;
+}
