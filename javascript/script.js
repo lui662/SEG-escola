@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             </a>
         </li>
         <li class="side_itens">
-            <a href="cadastrarNotas.html" onclick="showIframe(this); return false;">
-                <i class="bi bi-journal-richtext"></i>
+            <a href="cadastrarTurma.html" onclick="showIframe(this); return false;">
+                <i class="bi bi-bookmarks"></i>
                 <span class="descricao">
-                    Cadastrar Notas
+                    Cadastrar Turmas
                 </span>
             </a>
         </li>`

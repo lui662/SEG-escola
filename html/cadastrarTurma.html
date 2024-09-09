@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastrarTurma.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <h1>
+            cadastrar aluno a turma
+        </h1>
+        <form id="cadastrarTurmas">
+            <label for="nome_turma">Nome da Turma<span style="color: red;">*</span>: </label>
+            <input class="input_cadastro_turmas" type="text" id="nome_turma" name="nome_turma" required>
+
+            <label for="Id_alunos">Id dos Alunos(Separado por virgula)<span style="color: red;">*</span>: </label>
+            <input class="input_cadastro_turmas"  type="text" id="id_alunos" name="id_alunos" required>
+
+            <input type="hidden" id="id_disciplina">
+            
+            <button class="input_cadastro_turmas" type="submit">
+                Cadastrar Turma
+            </button>
+        </form>
+        <img src="../img/foto_de_fundo.png" alt="estudos">
+    </section>
+    <script src="../javascript/cadastrarTurmas.js"></script>
+</body>
+</html>
